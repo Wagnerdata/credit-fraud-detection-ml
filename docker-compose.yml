@@ -1,0 +1,12 @@
+services:
+  jupyter:
+    build: .
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    environment:
+      - JUPYTER_TOKEN=${JUPYTER_TOKEN}
+    restart: unless-stopped
